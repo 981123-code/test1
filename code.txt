@@ -1,0 +1,114 @@
+1、
+#include<reg52.h>
+#define uchar unsigned char
+#define uint unsigned int
+sbit OPEN=P3^7;
+uchar x,y;
+uchar code table []={0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f};
+uchar code p2[]={0x00,0x01,0x02,0x03,0x04,0x05,0x06,0x07};
+void Delay(unsigned int ii)	
+{
+	unsigned int jj;
+	for(;ii>0;ii--)
+	{
+		for(jj=0;jj<125;jj++)
+		{
+			;
+		}
+	}
+}
+void show(int x,int num)
+{
+	P2=p2[x];
+	OPEN=1;
+	P0=table[num];
+	OPEN=0;
+	Delay(500);
+}
+void main()
+{
+	while(1)
+	{
+		show(7,5);
+	}
+}
+
+
+//2 循环显示0-9
+
+#include<reg52.h>
+#define uchar unsigned char
+#define unit unsigned int
+sbit OPEN=P2^7;
+uchar x,y;
+uchar code table[]={0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f};
+uchar code p2[]={0x00,0x01,0x02,0x03,0x04,0x05,0x06,0x07};
+void Delay(unit i){
+	unit j;
+	for(;i>0;i--){
+		for(j=0;j<125;j++){
+			;
+		}
+	}}
+void show(int x,int num){
+	P2=p2[x];
+	OPEN=1;
+	P0=table[num];
+	Delay(500);
+
+}
+
+void main(){
+int h=0;
+	while(1){
+		for(h=0;h<=9;h++){
+		
+			show(3,h);
+			Delay(1000);
+		}
+		
+	}
+}
+
+
+
+
+// 3 同时显示1-8
+
+#include<reg52.h>
+#define uchar unsigned char
+#define unit unsigned int
+sbit OPEN=P2^7;
+uchar x,y;
+uchar code table[]={0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f};
+uchar code p2[]={0x00,0x01,0x02,0x03,0x04,0x05,0x06,0x07};
+void Delay(unit i){
+	unit j;
+	for(;i>0;i--){
+		for(j=0;j<125;j++){
+			;
+		}
+	}}
+void show(int x,int num){
+	P2=p2[x];
+	OPEN=1;
+	P0=table[num];
+	Delay(1);
+
+}
+
+void main(){
+
+	while(1){
+	show(0,1);
+	show(1,2);	
+	show(2,3);
+				show(3,4);
+				show(4,5);
+					show(5,6);
+						show(6,7);
+							show(7,8);
+
+
+	}
+}
